@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const bookRoute = require("./routes/book.route");
 require("./databases/init.mongose");
+var usersRouter = require("./routes/user.route");
 
 var app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //
 
 app.use("/book", bookRoute);
+app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

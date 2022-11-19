@@ -1,9 +1,11 @@
 @urlDev=http://localhost:3000
-###upload book
+###create request
 POST {{urlDev}}/request/create-request
 Content-Type: application/json
 
 {
-  "user":"1",
-  "book":""
+  "uId":"637858dc9d451c95e9369217",
+  "bookId":"6378563e00d26cb9938cc103"
 }
+###get request
+GET {{urlDev}}/request/get-request/63785782c875bf52f33adfd4

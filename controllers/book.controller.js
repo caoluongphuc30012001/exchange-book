@@ -50,11 +50,14 @@ class BookController {
       for (let user of users) {
         const books = await BookModel.find({uId: user._id});
         const availableBooks = books.filter((item) => item.isHaving);
-        data.push({
-          uId: user._id,
-          name: user.name,
-          availableBooks: availableBooks,
-        })
+        for (let book of availableBooks) {
+          data.push({
+            uId: user._id,
+            fullUserName: user.name,
+            bookId: book._id,
+            bookImg: book.image,
+          })
+        }
       }
       res.status(200).send(data)
     } catch (error) {

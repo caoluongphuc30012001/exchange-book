@@ -1,0 +1,10 @@
+@urlDev=http://localhost:3000
+#upload book
+POST {{urlDev}}/book/upload-book
+Content-Type: application/json
+
+{
+  "uId":"1",
+  "name":"Đắc nhân tâm",
+  "image":"https://sachhaymienphi.com/wp-content/uploads/2021/12/sach-dac-nhan-tam-dale-carnegie-sach-hay-mien-phi.jpg"
+}

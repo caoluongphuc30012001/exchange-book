@@ -56,6 +56,7 @@ class BookController {
             fullUserName: user.name,
             bookId: book._id,
             bookImg: book.image,
+            bookDesc: book.description
           })
         }
       }

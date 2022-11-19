@@ -1,0 +1,9 @@
+@urlDev=http://localhost:3000
+###upload book
+POST {{urlDev}}/request/create-request
+Content-Type: application/json
+
+{
+  "user":"1",
+  "book":""
+}

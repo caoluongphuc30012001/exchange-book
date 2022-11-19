@@ -8,14 +8,14 @@ const requestRouter = require("./routes/request.route");
 require("./databases/init.mongose");
 const cors = require("cors");
 var usersRouter = require("./routes/user.route");
+
+var app = express();
 app.use(
   cors({
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
-
-var app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

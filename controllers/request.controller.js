@@ -4,7 +4,7 @@ const BookModel = require("../models/book.model");
 class RequestController {
   acceptRequest = async (req, res) => {
     try {
-      const { requestId } = req.body;
+      const { requestId } = req.params;
       const request = await RequestModel.findById(requestId);
       const bookBuy = request.bookBuy;
       const bookSell = request.bookSell;

@@ -47,7 +47,7 @@ class RequestController {
         .populate("user")
         .populate("bookBuy")
         .populate("bookSell");
-      listRequest = listRequest.filter((item) => item.bookSell?.uId === userId);
+      listRequest = listRequest.filter((item) => item.bookBuy?.uId === userId);
       res.status(200).send({
         code: 0,
         message: "Get list success",

@@ -48,36 +48,37 @@ class BookController {
       const data = [];
       const users = await UserModel.find({});
       for (let user of users) {
-        const books = await BookModel.find({uId: user._id});
+        const books = await BookModel.find({ uId: user._id });
         const availableBooks = books.filter((item) => item.isHaving);
         for (let book of availableBooks) {
           data.push({
             uId: user._id,
+            bookName: book.name,
             fullUserName: user.name,
             bookId: book._id,
             bookImg: book.image,
-            bookDesc: book.description
-          })
+            bookDesc: book.description,
+          });
         }
       }
-      res.status(200).send(data)
+      res.status(200).send(data);
     } catch (error) {
-      res.status(500).send({error})
+      res.status(500).send({ error });
     }
   }
   async getAllBooksByUser(req, res) {
     try {
       const uId = req.params.uId;
-      const books = await BookModel.find({uId: uId});
+      const books = await BookModel.find({ uId: uId });
       const availableBooks = books.filter((item) => item.isHaving);
       const wishBooks = books.filter((item) => !item.isHaving);
       const data = {
         availableBooks: availableBooks,
-        wishBooks: wishBooks
-      }
-      res.status(200).send(data)
+        wishBooks: wishBooks,
+      };
+      res.status(200).send(data);
     } catch (error) {
-      res.status(500).send({error})
+      res.status(500).send({ error });
     }
   }
 }

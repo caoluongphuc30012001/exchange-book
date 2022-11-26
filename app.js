@@ -3,12 +3,20 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-const bookRoute = require("./routes/book.route");
+const bookRouter = require("./routes/book.route");
+const requestRouter = require("./routes/request.route");
 require("./databases/init.mongose");
+const cors = require("cors");
 var usersRouter = require("./routes/user.route");
 var requestRouter = require("./routes/request.route");
 
 var app = express();
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  })
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -21,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 //
 
-app.use("/book", bookRoute);
+app.use("/book", bookRouter);
 app.use("/users", usersRouter);
 app.use("/request", requestRouter);
 

@@ -28,3 +28,9 @@ Content-Type: application/json
   "name":"Đắc nhân tâm 2",
   "image":"https://sachhaymienphi.com/wp-content/uploads/2021/12/sach-dac-nhan-tam-dale-carnegie-sach-hay-mien-phi.jpg"
 }
+
+###get all available book
+GET {{urlDev}}/book/get-all-available-books
+
+###get all available book by user
+GET {{urlDev}}/book/get-all-books/63785782c875bf52f33adfd4

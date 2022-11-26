@@ -4,16 +4,13 @@ class UserController {
   loginUser = async (req, res) => {
     try {
       const { username, password } = req.body;
-      console.log(username);
       const user = await UserModel.findOne({
         username: username,
       });
-      console.log(user);
+      console.log(user.password);
       if (user) {
         //---------- user exists----------
         if (user.password === password) {
-          //------------- user if not comfirm -------------------------
-
           //---------- Login successful --------------------
           const dataRespone = {
             user: { ...user.toObject(), password: "***" },
@@ -69,19 +66,18 @@ class UserController {
       res.status(400).send({ message: error.message });
     }
   };
-
   //------- Get detail user information   --------------------------------
   getDetailUser = async function (req, res) {
     try {
-      const { userId } = req.body;
-      const user = await UserModel.findById(userId);
+      const {userId} = req.body;
+      const user = await UserModel.findOne({_id : userId});
       if (user) {
         const dataRespone = {
           user: { ...user.toObject(), password: "" },
         };
         const respone = {
           code: 102,
-          message: "Login successful",
+          message: "Get detail successful",
           data: dataRespone,
         };
         res.status(200).send(respone);

@@ -5,7 +5,8 @@ Content-Type: application/json
 
 {
   "uId":"637858dc9d451c95e9369217",
-  "bookId":"6378563e00d26cb9938cc103"
+  "bookBuy":"63788ec6c257db04955399aa",
+  "bookSell":"6378908515323d14a07dfc8a"
 }
 ###get request
 GET {{urlDev}}/request/get-request/63785782c875bf52f33adfd4

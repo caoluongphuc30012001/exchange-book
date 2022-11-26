@@ -6,7 +6,12 @@ const schema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    book: {
+    bookBuy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Book",
+      required: true,
+    },
+    bookSell: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Book",
       required: true,
